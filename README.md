@@ -2,8 +2,7 @@
 
 Generates randomized math practice worksheets with an answer key, for the
 Pre-Algebra and Algebra 1 classes I teach at Helping Hands. Output is an HTML
-file you print to PDF from the browser, so there are no dependencies to install
-and nothing to configure.
+file you print to PDF from the browser, so there is not need to install anything.
 
 Every worksheet has a number. The same number always regenerates the identical
 sheet, so a lost worksheet can be reprinted and a second class can be given the
