@@ -10,7 +10,7 @@ same problems. No problem is ever repeated on a single sheet.
 
 ## Running it
 
-Requires Python 3.8 or newer. No third-party packages.
+Requires Python 3.8 or a newer version to run. 
 
 ```bash
 # see what problem types exist
@@ -60,7 +60,7 @@ one generator:
 
 **No problem twice on a sheet.** Generators draw at random and have no memory,
 so left alone they hand out the same problem twice more often than you would
-guess — a 20-problem sheet drawn from a few hundred possible problems repeats
+guess a 20-problem sheet drawn from a few hundred possible problems repeats
 by the birthday paradox, not because a generator is broken. Before the fix, a
 sweep of 200 seeds found sheets with three copies of the same problem.
 `build_problems` keeps the questions it has already used and redraws on a
@@ -99,7 +99,7 @@ the solution first, then construct an equation that has it. Generating a random
 equation and hoping the solution is a whole number does not work.
 
 Generators must use only the `rng` they are handed, never the global `random`
-module. Otherwise the same seed stops producing the same worksheet, and the
+module. Otherwise, the same seed stops producing the same worksheet, and the
 worksheet numbers become meaningless.
 
 ## Tests
@@ -142,7 +142,7 @@ a real worksheet went unnoticed until the 200-seed sweep went in.
 
 ## Status
 
-All six generators are implemented and the suite passes. Conventions they
+All six generators are implemented, and the suite passes. Conventions they
 follow, in case a seventh gets added:
 
 - Problems are built backwards from a chosen answer, so solutions are always
@@ -154,7 +154,6 @@ follow, in case a seventh gets added:
 
 ## Possible next steps
 
-- A web page so other instructors can generate sheets without running Python
 - Difficulty levels that widen the number ranges
 - Word problems, which need templated sentences rather than expressions
 - Mixed-number answers for `fraction_add`, if the Pre-Algebra class needs them
