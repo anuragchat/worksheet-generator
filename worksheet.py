@@ -84,24 +84,6 @@ def one_step_equation(rng: random.Random) -> Problem:
     return Problem(question=question, answer="x = %d" % x)
 
 
-# ---------------------------------------------------------------------------
-# YOUR TURN
-#
-# Implement each of these. Delete the `raise NotImplementedError` line and
-# write the body. Run `python3 test_worksheet.py` to check your work - the
-# tests already cover determinism, variety, and formatting for every
-# generator, so you only need to make the math right.
-#
-# Rules every generator has to follow:
-#   1. Use only `rng`, never `random.foo()` directly.
-#   2. Return whole-number or clean-fraction answers. Students shouldn't
-#      get x = 3.7241 on an Algebra 1 worksheet.
-#   3. Don't put the answer in the question text.
-#   4. Build the problem backwards from a chosen answer when you can. It's
-#      much easier than generating a random problem and hoping it's clean.
-# ---------------------------------------------------------------------------
-
-# --- small formatting helpers used by the generators below ------------------
 
 def _signed(n: int) -> str:
     """Render a trailing term as " + 5" or " - 5", never " + -5"."""
@@ -191,8 +173,8 @@ def combining_like_terms(rng: random.Random) -> Problem:
         const = sum(v for k, v in terms if k == "c")
         answer = _linear(coef, const)
 
-        # e.g. "3x + 2 - 2x + 3" simplifying to something already visible in
-        # the question - rare, but it gives the answer away.
+        # ex: "3x + 2 - 2x + 3" simplifying to something already visible in
+        # the chance of the question coming up is rare, but it gives the answer away.
         if answer not in question:
             return Problem(question=question, answer=answer)
 
@@ -288,9 +270,7 @@ def fraction_add(rng: random.Random) -> Problem:
             return Problem(question=question, answer=answer)
 
 
-# ---------------------------------------------------------------------------
 # Worksheet assembly
-# ---------------------------------------------------------------------------
 
 # How many times to redraw looking for a problem that isn't already on the
 # sheet. Generators draw from a few hundred to a few thousand distinct
@@ -412,9 +392,7 @@ TEMPLATE = """<!DOCTYPE html>
 """
 
 
-# ---------------------------------------------------------------------------
 # Command line
-# ---------------------------------------------------------------------------
 
 def parse_spec(text: str) -> Tuple[str, int]:
     """Turn "one_step_equation:10" into ("one_step_equation", 10)."""
